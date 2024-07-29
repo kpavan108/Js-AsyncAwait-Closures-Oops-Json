@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+//   Inheritance
+
+        class Person {
+  constructor(firstName, lastName, age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+  }
+
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+class Employee extends Person {
+  constructor(firstName, lastName, age, jobTitle) {
+    super(firstName, lastName, age);
+    this.jobTitle = jobTitle;
+  }
+
+  getJobDescription() {
+    return `${this.getFullName()} is a ${this.jobTitle}.`;
+  }
+}
+
+
+const john = new Employee("John", "Doe", 30, "Software Developer");
+console.log(john.getJobDescription()); 
+
+    </script>
+
+    <!-- Polymorphism -->
+
+    <script>
+        class Animal {
+  speak() {
+    console.log("Animal makes a sound");
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    console.log("Dog barks");
+  }
+}
+
+class Cat extends Animal {
+  speak() {
+    console.log("Cat meows");
+  }
+}
+
+const animals = [new Animal(), new Dog(), new Cat()];
+
+animals.forEach(animal => animal.speak());
+
+
+    </script>
+
+
+<script>
+
+//    Abstraction
+
+ class Car {
+  constructor(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+
+  start() {
+    console.log("Car is starting...");
+  }
+
+  drive() {
+    console.log("Car is driving...");
+  }
+}
+
+const myCar = new Car("Toyota", "Corolla", 2021);
+myCar.start();
+myCar.drive(); 
+
+</script>
+</body>
+</html>

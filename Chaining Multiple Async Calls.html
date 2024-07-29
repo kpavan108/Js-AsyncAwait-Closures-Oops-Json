@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Simulating multiple asynchronous calls
+async function fetchData1() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Data 1");
+    }, 1000);
+  });
+}
+
+async function fetchData2() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Data 2");
+    }, 2000);
+  });
+}
+
+async function fetchData3() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Data 3");
+    }, 3000);
+  });
+}
+
+// Using await to chain multiple asynchronous calls
+async function displayAllData() {
+  try {
+    const data1 = await fetchData1();
+    console.log(data1); // "Data 1" after 1 second
+
+    const data2 = await fetchData2();
+    console.log(data2); // "Data 2" after 3 seconds
+
+    const data3 = await fetchData3();
+    console.log(data3); // "Data 3" after 6 seconds
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Call the async function
+displayAllData();
+
+    </script>
+</body>
+</html>
